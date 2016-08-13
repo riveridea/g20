@@ -23,5 +23,5 @@ class Solution(object):
         #无解的情况
         return [-1, -1]
 
-if __name__ == "__main__":
-    None
+if __name__ == '__main__':
+    twoSum([2, 7, 11, 9], 18)
