@@ -26,3 +26,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
+        if nums == []:
+        	return
+
+        left = 0
+        right = len(nums) - 1 # gram
+        i = 0
+
+        while i <= right:
+            if nums[i] == 0:
+                nums[left],nums[i] = nums[i],nums[left]
+                left = left + 1
+                i = i + 1
+            elif nums[i] == 1:
+                i = i + 1
+            elif nums[i] == 2:
+                nums[i], nums[right] = nums[right], nums[i]
+                i = i + 1
+        print(nums)
+
+
+if __name__ == '__main__':
+	nums = [2, 1, 0, 0, 2, 1]
+	c = Solution()
+	c.sortColors(nums)
