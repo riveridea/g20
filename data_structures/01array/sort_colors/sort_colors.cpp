@@ -23,8 +23,7 @@ Could you come up with an one-pass algorithm using only constant space?
 
 // 两边往中间走，是红的放左边，是蓝的放右边
 
-#include <>
-#include <>
+#include <iostream>
 
 using namespace std;
 
@@ -57,6 +56,9 @@ public:
 
 int main() {
     vector<int> unSortedArrayOfColors = {2, 1, 0, 0, 2, 1};
+
+    Solution solution1;
+    cout << "new length is: " + solution1.sortColors(unSortedArrayOfColors) << endl;
 
     return 0;
 }
