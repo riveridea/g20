@@ -1,4 +1,6 @@
-Write a program to find the node at which the intersection of two singly linked lists begins.
+/*
+Write a program to find the node at which the intersection of two 
+singly linked lists begins.
 
 For example, the following two linked lists:
 
@@ -16,9 +18,7 @@ If the two linked lists have no intersection at all, return null.
 The linked lists must retain their original structure after the function returns.
 You may assume there are no cycles anywhere in the entire linked structure.
 Your code should preferably run in O(n) time and use only O(1) memory.
-
-
-/* CPP */
+*/
 
 
 /**
@@ -31,10 +31,23 @@ Your code should preferably run in O(n) time and use only O(1) memory.
  */
 class Solution {
 public:
+
+	// Method 1:  
+	/*
+    get the lengths of two lists seperatedly. on the longer list
+    forward (length1 - length2), then two pointer forward at the
+    the same pace, if meet, then we get intersection pointer.
+	*/
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         
     }
+
+    // Method 2: smart
+    /*
+
+    */
+
+    ListNode *getIntersectionNode2(ListNode *headA, ListNode *headB) {
+        
+    }
 };
-
-
-// end of file
