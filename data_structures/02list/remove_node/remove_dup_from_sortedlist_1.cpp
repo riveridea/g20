@@ -58,7 +58,29 @@ public:
 
 int main() {
 
-    
+    Solution solution;
+    ListNode head = ListNode(1);
+    ListNode node2 = ListNode(1);
+    ListNode node3 = ListNode(2);
+    ListNode node4 = ListNode(3);
+    ListNode node5 = ListNode(3);
+
+    head.next = &node2;
+    node2.next = &node3;
+    node3.next = &node4;
+    node4.next = &node5;
+    node5.next = NULL;
+
+    ListNode *newList;
+
+    newList = solution.deleteDuplicates(&head);
+
+    while (newList != NULL) {
+        cout << newList->val << " ";
+        newList = newList->next;
+    }
+
+    cout << endl;
 
     return 0;
 }
