@@ -1,6 +1,4 @@
 /*
-https://leetcode.com/problems/permutations
-
 Given a collection of distinct numbers, return all possible permutations.
 
 For example,
@@ -26,18 +24,6 @@ Else
 
 --end
 */
-
-class Solution {
-public:
-    vector<vector<int>> permute(vector<int>& nums) {
-        
-    }
-};
-
-
-
-
-
 // Good to go
 public class Solution {
     public ArrayList<ArrayList<Integer>> permute(int[] num) {

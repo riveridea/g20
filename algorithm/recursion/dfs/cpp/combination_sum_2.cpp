@@ -23,6 +23,33 @@ duplicate combinations. For example, given candidate set 10,1,2,7,
 class Solution {
 public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> list;
+        sort(candidates.begin(), candidates.end());
+        dfs(result, list, candidates, target, 0);
+        return result;
+    }
+    
+    void dfs(vector<vector<int>>& result, vector<int>& list, vector<int>& candidates, int target, int pos) {
+        
+        if (target < 0) {
+            return;
+        }
+        
+        if (target == 0) {
+            result.push_back(list);
+            return;
+        }
+        
+        for (int i = pos; i < candidates.size(); i++) {
+            list.push_back(candidates[i]);
+            dfs(result, list, candidates, target-candidates[i],i+1);
+            list.pop_back();
+            
+            while (i < candidates.size() -1 && candidates[i] == candidates[i+1]) {
+                i++;
+            }
+        }
         
     }
 };

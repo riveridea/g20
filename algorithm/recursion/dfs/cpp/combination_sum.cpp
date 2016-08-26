@@ -21,7 +21,6 @@ set is:
 
 */
 
-
 class Solution {
 public:
         // vector<int> v = {2, 0, 1, 5, 9, 2, 7};
@@ -43,11 +42,13 @@ public:
             return;
         }
         
+        // if target == 0, then we found a solution
         if (target == 0) {
             result.push_back(list);
             return;
         }
         
+        // else continue to match
         for (int i = pos; i < candidates.size(); i++) {
             list.push_back(candidates[i]);
             dfs(result, list, candidates, target-candidates[i], i);
