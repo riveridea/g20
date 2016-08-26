@@ -30,73 +30,34 @@ Else
 class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> result;
         
-    }
-};
-
-
-
-
-
-// Good to go
-public class Solution {
-    public ArrayList<ArrayList<Integer>> permute(int[] num) {
-
-        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-        if(num.length==0) return res;
-        boolean[] visit = new boolean[num.length];
-        int[] buff = new int[num.length];
-        dfs(res,buff,visit,num,0);
-        return res;
+        if (nums.size() == 0) {
+            return result;
+        }
+        
+        vector<int> list;
+        // 0 means not visited
+        vector<int> visited(nums.size(), 0);
+        dfs(nums, 0, visited, list, result);
+        return result;
     }
     
-    public void dfs(ArrayList<ArrayList<Integer>> res, int[]buff,boolean[] visit, int num[],int pos){
-        if(pos==num.length){
-            ArrayList<Integer> sub  = new ArrayList<Integer>();
-            for(int n: buff) sub.add(n); //Arrays.asList(array)
-            res.add(sub);
+    void dfs(vector<int>& nums, int pos, vector<int>& visited, vector<int>& list, vector<vector<int>>& result) {
+        
+        if (pos == nums.size()) {
+            result.push_back(list);
             return;
         }
-        for(int i=0;i<num.length;i++){
-            if(visit[i] == false){
-                buff[pos]=num[i]; 
-                // 原解法 此处 buff[i] = num[pos] 反了，在做 permutation II的时候会出问题。
-                visit[i]=true;
-                dfs(res,buff,visit,num,pos+1);
-                visit[i]=false;
-            }
-        }
-    }
-}
-
-
-public class Solution {
-    public ArrayList<ArrayList<Integer>> permute(int[] num) {
-        ArrayList<ArrayList<Integer>> list = 
-            new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> a = new ArrayList<Integer>();
-        a.add(num[0]);
-        list.add(a);
-
-        for(int i = 1; i < num.length; i++) {
-            list = insert(list, num[i]);
-         }
-        return list;
-}
-
-public ArrayList<ArrayList<Integer>> insert(
-                    ArrayList<ArrayList<Integer>> list, int num) {
-    ArrayList<ArrayList<Integer>> resultList = 
-            new ArrayList<ArrayList<Integer>>();
-        for(int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.get(i).size() + 1; j++) {
-                ArrayList<Integer> temp = 
-                    new ArrayList<Integer>(list.get(i));
-                temp.add(j, num);
-                resultList.add(temp);
-            }
-        }
         
-        return resultList;
+        for (int i = 0; i < nums.size(); i++) {
+            if (visited[i] == 0) {
+                visited[i] = 1;
+                list.push_back(nums[i]);
+                dfs(nums, pos+1, visited, list, result);
+                list.pop_back();
+                visited[i] = 0;
+            }
+        }
     }
-}
+};
