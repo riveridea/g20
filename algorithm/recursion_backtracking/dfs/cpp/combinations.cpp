@@ -51,8 +51,27 @@ public:
     	}
     }
 
-    void PrintNestedVector(vector<vector<int>>) {
-    
+    void PrintNestedVector(vector<vector<int>>& vector) {
+    	for (auto iElement = vector.cbegin();
+    		     iElement != vector.cend();
+    		     ++iElement){
+
+            cout << DisplayVector(*iElement);
+    	}
+    }
+
+    string DisplayVector(const vector<int>& vecInput) {
+    	string result;
+
+    	cout << "[" ;
+        for (auto iElement = vecInput.cbegin();
+                iElement != vecInput.cend();
+                ++ iElement) {
+            cout << *iElement << ", " ;
+        }
+
+        cout << "]";
+        cout << endl;
     }
 };
 
@@ -63,7 +82,7 @@ int main() {
 
     vector<vector<int>> result;
     result = s.Combine(n, k);
-    PrintNestedVector(result);
+    PrintNestedVector(&result);
 
     return 0;
 }
