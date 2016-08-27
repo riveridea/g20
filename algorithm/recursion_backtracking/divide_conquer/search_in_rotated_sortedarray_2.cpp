@@ -43,7 +43,13 @@ public:
                 } else {
                     start = mid + 1;
                 }
+            // if nums[mid] == nums[end], then we cannot come to the 
+            // the conclusion that either left or right side of the 
+            // arrary is sorted. Instead, we can exclude the last element
+            // namely, nums[end]. So, the worst case, time complexity is
+            // O(n)     
             } else {
+                // mid is equal to the end
                 end --;
             }
         }
