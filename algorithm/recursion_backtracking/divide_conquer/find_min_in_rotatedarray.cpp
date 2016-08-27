@@ -50,7 +50,7 @@ public:
             }   
         }   
 
-        return nums(start);
+        return nums[start];
     }
 
 };
