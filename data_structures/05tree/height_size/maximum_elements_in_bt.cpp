@@ -52,3 +52,36 @@ int main(void) {
 
 	return 0;
 }
+
+
+ public class Solution{
+
+ 	public int findMax(TreeNode root) {
+ 		int max = Integer.MIN_VALUE;
+
+ 		if (root == null) {
+ 			return max;
+ 		}
+
+ 		Queue<TreeNode> q = new LinkedList<TreeNode>();
+ 		q.add(root);
+
+ 		while (q.isEmpty() == false) {
+ 			TreeNode node = q.poll();
+
+ 			if (node.left != null) {
+ 				q.add(node.left);
+ 			}
+
+ 			if (node.right != null) {
+ 				q.add(node.right);
+ 			}
+
+ 			if (max < node.val) {
+ 				max = node.val;
+ 			}
+ 		}
+
+ 	}
+ }
+ 
