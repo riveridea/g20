@@ -63,3 +63,93 @@ public:
 		}
 	}
 };
+
+
+
+/*
+print_binary_tre_root_to_leaf_paths.cpp
+
+/*
+Given a binary tree, print out all of its root-to-leaf paths.
+*/
+
+struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution {
+public:
+    void PrintBinaryTrePath(TreeNode* head) {
+
+    	if (head == NULL) {
+    		return NULL;
+    	}
+
+    	vector<vector<int>> paths;
+
+    	return PrintBinaryTrePathHelper(head, paths);
+
+    }
+
+    void PrintBinaryTrePathHelper(TreeNode* head, 
+    		vector<vector<int>>& paths, 
+    		vector<int> path) {
+
+    	path.push_back(head->val);
+
+    	if (head->left==NULL && head->right==NULL) {
+    		return;
+    	} else {
+    		if (head->left != NULL) {
+    			PrintBinaryTrePathHelper(node->left, paths, path);
+    		}
+
+    		if (head->right != NULL) {
+    			PrintBinaryTrePathHelper(node->right, paths, path);
+    		}
+    	}
+
+    	paths.pop_back();
+    }
+
+};
+
+
+
+public static void paths(Node node, LinkedList<Integer> list) { 
+if(node == null) return; 
+list.add(node.data); 
+
+if(node.left == null && node.right == null) { 
+print(list); 
+return;
+} 
+else { 
+paths(node.left, list); 
+paths(node.right, list); 
+} 
+} 
+
+public static void print(LinkedList<Integer> list) { 
+System.out.println("Contents of list: " + list); 
+} 
+
+
+public void Wrapper(Node root)
+{
+    PrintAllPaths(root, "");
+}
+
+public void PrintAllPaths(Node node, string pathSoFar)
+{
+    if(node==null)
+    {
+        Console.WriteLine(pathSoFar);
+        return;
+    }
+    PrintAllPaths(node.left, pathSoFar + ", " node.data);
+    PrintAllPaths(node.right, pathSoFar + ", " node.data);
+}
