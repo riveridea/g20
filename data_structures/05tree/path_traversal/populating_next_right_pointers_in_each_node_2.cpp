@@ -4,7 +4,8 @@ https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
 
 Follow up for problem "Populating Next Right Pointers in Each Node".
 
-What if the given tree could be any binary tree? Would your previous solution still work?
+What if the given tree could be any binary tree? 
+Would your previous solution still work?
 
 Note:
 
@@ -33,4 +34,40 @@ struct TreeLinkNode {
     TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
 };
 
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        if (root == NULL) {
+          return;
+        }
 
+        queue<TreeLinkNode*> q;
+        q.push(root);
+
+        while (!q.empty()) {
+          queue<TreeLinkNode *> nextLevel;
+          int size = q.size();
+
+          for (int i = 0; i < size; i++) {
+            TreeLinkNode* node = q.front();
+            q.pop();
+
+            if (node->left != NULL) {
+                nextLevel.push(node->left);
+            }
+
+            if (node->right != NULL) {
+                nextLevel.push(node->right);
+            }
+
+            if (i == size - 1) {
+                node->next = NULL;
+            } else {
+                node->next = q.front();
+            }
+          }
+
+          q = nextLevel;
+        }
+    }
+};
