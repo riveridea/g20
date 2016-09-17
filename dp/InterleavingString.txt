@@ -1,0 +1,44 @@
+/*
+Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
+
+For example,
+Given:
+s1 = "aabcc",
+s2 = "dbbca",
+
+When s3 = "aadbbcbcac", return true.
+When s3 = "aadbbbaccc", return false.
+*/
+
+
+#
+
+表示子问题：si取前leni个字符的话，那么实际上可以得到这样的一个公式：
+
+isInterleaving(s1,len1,s2,len2,s3,len3) 
+    =   (s3.lastChar == s1.lastChar) && isInterleaving(s1,len1 - 1,s2,len2,s3,len3 - 1)
+      ||(s3.lastChar == s2.lastChar) && isInterleaving(s1,len1,s2,len2 - 1,s3,len3 - 1)
+由于len3 === len1 + len2，所以这个问题里面实际上存在着两个变量，是一个二维动态规划题目。
+从矩阵的角度来看的话，每一个元素的值，依赖于它的上边和左边两个值。
+
+/* Java */
+
+public class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+
+        if(s1.length() + s2.length() != s3.length())
+            return false;
+        boolean[] interleaved = new boolean[s2.length() + 1];
+        interleaved[0] = true;
+        for(int i = 0; i <= s1.length(); i++)
+            for(int j = 0; j <= s2.length(); j++){
+                if(i - 1 >= 0)
+                    interleaved[j] = interleaved[j] & (s1.charAt(i - 1) == s3.charAt(i + j - 1));
+                if(j - 1 >= 0)
+                    interleaved[j] |= interleaved[j - 1] & (s2.charAt(j - 1) == s3.charAt(i + j - 1));
+            }
+
+        return interleaved[s2.length()];
+        
+    }
+}

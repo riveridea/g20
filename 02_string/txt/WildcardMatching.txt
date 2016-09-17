@@ -1,0 +1,62 @@
+/*
+Implement wildcard pattern matching with support for '?' and '*'.
+
+'?' Matches any single character.
+'*' Matches any sequence of characters (including the empty sequence).
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "*") → true
+isMatch("aa", "a*") → true
+isMatch("ab", "?*") → true
+isMatch("aab", "c*a*b") → false
+*/
+
+
+From http://tech-wonderland.net/blog/leetcode-wildcard-matching.html
+
+(1) recursive solution or DP, F(i, j) denote if s[0]…s[i-1] and p[0]…p[j-1] is matched or not
+
+ F(i, j) = (s[i-1] == p[j-1]) && F(i-1, j-1) if  p[j-1] != ‘*’ or ‘?’
+F(i, j) = F(i-1, j-1)  if  p[j] == ‘?’
+F(i, j) = OR F(i-l, j-1) for l = 0, … i,  if  p[j] == ‘*’
+
+(2) greedy: whenever encounter ‘*’ in p, keep record of the current position of ‘*’ in p and the current index in s. Try to match the stuff behind this ‘*’ in p with s, if not matched, just s++ and then try to match again.
+
+###
+
+http://blog.csdn.net/niaokedaoren/article/details/10947673
+
+####
+
+用一个状态矩阵state[sLen+1][pLen+1]记录中间状态，看是否匹配。
+
+对于s[i]，p[j]，
+
+1) if  p[j] == '?', state[i+1][j+1] =  state[i][j]    
+
+2) if p[j] == '*', 这个*可以匹配s[k~i]， k=0，。。。 i，所以state[k][j]中只要有true，那么state[i+1][j+1] = true，否则为false。
+
+3）else ， 那么 s[i] == p[j]， state[i+1][j+1] = state[i][j]。 否则为false；
+
+####
+
+http://blog.csdn.net/abcbc/article/details/8868711
+
+由于通配符匹配的时候，可以看做分段匹配，将p根据‘*’分成不同的部分，把这些部分分别放在s中做字符串匹配，只要能匹配并且各个部分不重叠，那么最终就是匹配的。比如p = abc****d?f*ghi，p可分为三段,abc, def, ghi。将这三段分别与s进行匹配。
+需要注意的地方是第一段和最后一段的匹配。如果第一段的第一个字符不是‘*’，则第一段就需要从第一个字符开始正向进行匹配。如果最后一段的最后一个字符不是‘*’，则最后一段需要从最后一个字符开始反向匹配。
+
+The answer I used in OJ. MARK!
+
+####
+
+
+http://gongxuns.blogspot.com/2013/01/leetcode-wildcard-matching.html
+http://blog.unieagle.net/2012/11/07/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Awildcard-matching/

@@ -1,0 +1,70 @@
+1.2.txt
+
+void Reverse(char *str)
+{
+	char* end = str;
+	char tmp;
+
+	if (str)
+	{
+		while (*end)
+		{
+			++end;
+		}
+
+		--end;
+
+		while (str < end)
+		{
+			tmp = *str;
+			*str++ = *end;
+			*end-- = tmp;
+		}
+	}
+}
+
+
+# Implement a function void reverse(String str) which reverse a null-terminated string.
+
+public class Solution {
+	public String reverse(String str) {
+		if (str == null || str.length() == 0) {
+			return str;
+		}
+
+		char[] array = str.toCharArray();
+		int n = array.length;
+		int i = 0;
+
+		while (i < n) {
+			char tmp = '\0';
+
+			tmp = array[i];
+			array[i] = array[n-1];
+			array[n-1] = tmp;
+
+			i++;
+			n--;
+		}
+
+		return new String(array);
+
+	}
+  
+    public static void main(String[] args) {
+    	
+    	System.out.println(new Solution().reverse("abcd"));  
+    	
+    }
+}
+
+
+
+public static String reverseIt(String source) {
+    int i, len = source.length();
+    StringBuffer dest = new StringBuffer(len);
+
+    for (i = (len - 1); i >= 0; i--)
+      dest.append(source.charAt(i));
+    return dest.toString();
+}

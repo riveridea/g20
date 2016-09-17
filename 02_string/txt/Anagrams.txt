@@ -1,0 +1,43 @@
+/*
+Given an array of strings, return all groups of strings that are anagrams.
+*/
+
+Finally, if we think deeper into this, we will find that we actually don’t have to do the N^2 comparisons at all. The key observation is that A and B is anagram to each other if and only if their sorted form are exactly the same. As a result, one linear scan through the words list is enough, for each word we can get its sorted form in K log K time, and we can use map to store the groups of words which are in the same sorted form. The time complexity is O(N K log K), this approach could pass both small data test and large data test.
+
+
+/* Java */
+public class Solution {
+    public ArrayList<String> anagrams(String[] strs) {
+        int len = strs.length;
+         ArrayList<String> result = new ArrayList<String>();
+         Map<String, ArrayList<String>> sorted = new HashMap<String, ArrayList<String>>();
+         
+         for(int i = 0; i < len; i++){
+             String tmp = strs[i];
+             String sort = sortStr(tmp);
+             if(sorted.get(sort) != null){
+                 sorted.get(sort).add(tmp);
+             } else {
+                 ArrayList<String> list = new ArrayList<String>();
+                list.add(tmp);
+                 sorted.put(sort, list);
+             }
+         }
+         
+         Iterator iter = sorted.values().iterator();
+         while(iter.hasNext()){
+            ArrayList<String> list = (ArrayList<String>)iter.next();
+            if(list.size() > 1){
+                 result.addAll(list);
+             }
+         }
+         
+         return result;
+    }
+     
+     public String sortStr(String str){
+         char[] c = str.toCharArray();
+         Arrays.sort(c);
+         return new String(c);
+     }
+}

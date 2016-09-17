@@ -1,0 +1,57 @@
+1.3.txt
+
+# Given two strings, write a method to decide if one is a permutation of the other.
+
+
+-----------
+# 1. Sort the strings
+
+public boolean permutation(String s, String t) {
+
+	if (s == null || t == null) {
+		return false;
+	}
+
+	if (s.length() != t.length()) {
+		return false;
+	}
+
+	return sort(s).equals(sort(t));
+}
+
+public String sort(String s) {
+	char[] content = s.toCharArray();
+	java.util.Arrays.sort(content);
+	return new String(content);
+}
+
+-----------
+# 2. check if the two string have indentical character counts.
+
+public boolean permutation(String s, String t) {
+
+	if (s == null || t == null) {
+		return false;
+	}
+
+	if (s.length() != t.length()) {
+		return false;
+	}
+
+	int[] letters = new int[256];
+
+	char[] s_array = s.toCharArray();
+
+	for (char c : s_array) {
+		letters[c]++;
+	}
+
+	for (int i = 0; i < t.length(); i++) {
+		int c = (int) t.charAt(i);
+		if (--letters[c] < 0) {
+			return fasle;
+		}
+	}
+
+	return true;
+}

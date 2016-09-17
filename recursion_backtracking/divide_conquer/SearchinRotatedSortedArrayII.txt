@@ -1,0 +1,65 @@
+Follow up for "Search in Rotated Sorted Array":
+What if duplicates are allowed?
+
+Would this affect the run-time complexity? How and why?
+
+Write a function to determine if a given target is in the array.
+
+
+
+/* Java */
+
+http://blog.csdn.net/pickless/article/details/10390623
+
+class Solution {
+public:
+    bool find(int A[], int l, int r, int target) {
+        if (l > r) {
+            return false;
+        }
+        int mid = (l + r) >> 1;
+        if (A[mid] == target) {
+            return true;
+        }
+        else if (A[l] < A[r]) {
+            return A[mid] < target ? find(A, mid + 1, r, target) : find(A, l, mid - 1, target);
+        }        
+        else {
+            return find(A, l, mid - 1, target) || find(A, mid + 1, r, target);
+        }
+    }
+    
+    bool search(int A[], int n, int target) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        return find(A, 0, n - 1, target);
+    }
+};
+
+###
+http://blog.csdn.net/fightforyourdream/article/details/16857291
+
+public class Solution {
+    public boolean search(int[] A, int target) {
+        return rec(A, target, 0, A.length-1) != -1;
+    }
+
+
+    public static int rec(int[] A, int target, int low, int high) {
+        if (low > high) { 
+            return -1;
+        }
+
+        int mid = low + (high - low) / 2;
+        if (A[mid] == target) { 
+            return mid;
+        }
+
+        int res = rec(A, target, low, mid - 1); 
+        if (res == -1) { 
+            res = rec(A, target, mid + 1, high);
+        }
+
+        return res;
+    }
+}
