@@ -77,3 +77,56 @@ public:
     }
 
 };
+
+#include <vector>
+#include <stack>
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> stack;
+        
+        while (1) {
+            if (root != NULL) {
+                stack.push(root);
+                root = root->left;
+            } else {
+                if (stack.empty() == true) {
+                    return result;
+                } else {
+                    if (stack.top()->right == NULL) {
+                        root = stack.top();
+                        stack.pop();
+                        result.push_back(root->val);
+                        
+                        if (root == stack.top()->right) {
+                            result.push_back(stack.top()->val);
+                            stack.pop();
+                        }
+                    }
+                    
+                    if (stack.empty() != true) {
+                        root = stack.top()->right;
+                    } else {
+                        root = NULL;
+                    }
+                }
+            }
+        }
+    }
+};
+
+int main() {
+    return 0;
+}
