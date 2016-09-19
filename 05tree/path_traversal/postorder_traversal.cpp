@@ -48,85 +48,49 @@ public:
 
 
     // iteratively 
-    vector<int> PostorderTraversal1(TreeNode *root) {
-        vector<int> result;
-        stack<TreeNode *> stack;
-
-        TreeNode *current = root;
-        TreeNode *lastVisited = NULL;
-
-        while (current != NULL || !stack.empty()) {
-            while (current != NULL) {
-                stack.push(current);
-                current = current->left;
-            }
-
-            current = stack.top();
-
-            if (current->right == NULL || current->right == lastVisited) {
-                stack.pop();
-                result.push_back(current->val);
-                lastVisited = current;
-                current = NULL;
-            } else {
-                current = current->right;
-            }
-        }
-
-        return result;
-    }
-
-};
-
-#include <vector>
-#include <stack>
-
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-
-using namespace std;
-
-class Solution {
-public:
-    vector<int> postorderTraversal(TreeNode* root) {
-        vector<int> result;
-        stack<TreeNode*> stack;
-        
-        while (1) {
-            if (root != NULL) {
-                stack.push(root);
-                root = root->left;
-            } else {
-                if (stack.empty() == true) {
-                    return result;
-                } else {
-                    if (stack.top()->right == NULL) {
-                        root = stack.top();
-                        stack.pop();
-                        result.push_back(root->val);
-                        
-                        if (root == stack.top()->right) {
-                            result.push_back(stack.top()->val);
-                            stack.pop();
-                        }
-                    }
+    /* alogrithm from wiki
+	iterativePostorder(node)
+  		s ← empty stack
+  		lastNodeVisited ← null
+  		while (not s.isEmpty() or node ≠ null)
+    	    if (node ≠ null)
+                s.push(node)
+                node ← node.left
+            else
+                peekNode ← s.peek()
+                // if right child exists and traversing node
+                // from left child, then move right
+                if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
+                    node ← peekNode.right
+                else
+                    visit(peekNode)
+                    lastNodeVisited ← s.pop()
+    */
                     
-                    if (stack.empty() != true) {
-                        root = stack.top()->right;
-                    } else {
-                        root = NULL;
-                    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        stack<TreeNode*> stack;
+        TreeNode* lastNodeVisited = NULL;
+        vector<int> result;
+        TreeNode* node = root;
+        TreeNode* peekNode = NULL;
+        
+        while (!stack.empty() || node != NULL) {
+            if (node != NULL) {
+                stack.push(node);
+                node = node->left;
+            } else {
+                peekNode = stack.top();
+                
+                if (peekNode->right != NULL && lastNodeVisited != peekNode->right) {
+                    node = peekNode->right;
+                } else {
+                    result.push_back(peekNode->val);
+                    lastNodeVisited = stack.top();
+                    stack.pop();
                 }
             }
         }
+        
+        return result;
     }
 };
-
-int main() {
-    return 0;
-}
