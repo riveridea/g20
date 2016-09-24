@@ -28,6 +28,12 @@ NOTE: This is not necessarily a binary search tree.
 
 */
 
+// Problem 46: Given pointers to two nodes in a binary search tree, find lowest
+// common ancestor (LCA). Assume that both values already exist in the tree.
+
+// Problem 47: Give an algorithm for finding the shortest path between two nodes
+// in a BST.
+
 
 /**
  * Definition for a binary tree node.
