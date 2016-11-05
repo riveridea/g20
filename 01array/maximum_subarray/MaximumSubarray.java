@@ -10,7 +10,7 @@ sum = 6.
 
 /* Java */
 
-public class Solution {
+class Solution {
     public int maxSubArray(int[] A) {
         int sum = Integer.MIN_VALUE;
         int tmp = 0;
