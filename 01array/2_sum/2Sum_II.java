@@ -19,5 +19,22 @@ Output: index1=1, index2=2
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         
+        int[] indexes = new int[2];
+        int end = numbers.length-1;
+        int start = 0;
+
+        while (start < end) {
+        	if (numbers[start] + numbers[end] == target) {
+        		indexes[0] = start + 1;
+        		indexes[1] = end +1;
+        		break;
+        	} else if (numbers[start] + numbers[end] < target) {
+        		start++;
+        	} else {
+        		end--;
+        	}
+        }
+        
+        return indexes;        
     }
 }
