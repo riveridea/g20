@@ -37,6 +37,65 @@ Topological sort could also be done via BFS.
 
 public class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        
+        // adjacency list is a linked list
+        List<Set> nodes = new ArrayList<Set>();
+
+        for (int i = 0; i < numCourses; i++) {
+        	nodes.add(new HashSet<Integer>());
+        }
+
+        // fill the adjaceny list with the prerequistes
+        // prerequisites is n-dim array of 2-dim array, 
+        for (int i = 0; i < prerequisites.length; i++) {
+        	// get the course IDs, which will be the requirement for 
+        	// other courses. then put all the courses after it into
+        	// a hash set
+        	nodes.get(prerequisites[i][1]).add(prerequisites[i][0]);
+        }
+
+        // count the after-course for each courses, from 0 to n-1
+        int[] outDegree = new int[numCourses];
+
+        for (int i = 0; i < numCourses; i++) {
+        	Set set = nodes.get(i);
+        	// assume, i mean course ith, outDegree[i] means
+        	// how many other courses use it as the prerequiste
+            Iterator<Integre> it = set.iterator();
+
+            while (it.hasNext()) {
+            	outDegree[it.next()]++;
+            }
+        }
+
+        // use BFS to remove a ready-to-take course once per time
+        for (int i = 0; i < numCourses; i++) {
+        	// find a course, which doesn't need any other courses,
+        	// to begin with
+        	int courseNumber = 0;
+        	for (; courseNumber < numCourses; j++) {
+        		if (outDegree[j] == 0) {
+        			// find one, and remove
+        			break;
+        		}
+        	}
+
+        	if (courseNumber == numCourses) {
+        		// because every course will need some course else
+        		// there is a cycle, no result found, return false
+        		return false;
+        	}
+
+        	// otherwise decrease the outDegree
+        	outDegree[courseNumber] =- 1;
+
+        	Set set = nodes.get(courseNumber);
+        	Iterator<Integer> it = set.iterator();
+
+        	while (it.hasNext()) {
+        		outDegree[it.next()]--;
+        	}
+        }
+
+        return true;
     }
 }
