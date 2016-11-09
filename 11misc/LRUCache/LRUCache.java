@@ -1,3 +1,27 @@
+/*
+146. LRU Cache
+https://leetcode.com/problems/lru-cache/
+
+Design and implement a data structure for Least Recently Used (LRU) cache. 
+It should support the following operations: get and set.
+
+get(key) - Get the value (will always be positive) of the key if the key 
+exists in the cache, otherwise return -1.
+set(key, value) - Set or insert the value if the key is not already present. 
+When the cache reached its capacity, it should invalidate the least recently 
+used item before inserting a new item.
+
+what is LRUCache:
+see http://mcicpc.cs.atu.edu/archives/2012/mcpc2012/lru/lru.html
+*/
+
+
+
+
+
+
+/* notes
+
 NOTE: in this problem, we do not need to consider the remove() operation , LOL
 So, we can use a HashMap to record the position of a list
 HashMap<Integer, Integer> key2valMap; // a map from key to value, 
@@ -95,3 +119,7 @@ public class LRUCache {
         }
     }
 }
+
+
+
+*/
