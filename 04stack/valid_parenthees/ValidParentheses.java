@@ -1,4 +1,8 @@
 /*
+20. Valid Parentheses
+
+https://leetcode.com/problems/valid-parentheses
+
 Given a string containing just the characters 
 '(', ')', '{', '}', '[' and ']', determine if 
 the input string is valid.
@@ -9,23 +13,47 @@ The brackets must close in the correct order,
 
 */
 
-
-
-/* Java */
-
 public class Solution {
     
     public boolean isLeftpart(char c) {
-        if (c=='(' || c=='[' || c=='{') return true;
-        return false;
+        if (c=='(' || c=='[' || c=='{') {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public char counterpart(char c) {
-        if (c==')') return '(';
-        if (c=='}') return '{';
-        if (c==']') return '[';
+        /*
+        if (c==')') {
+            return '(';
+        }
+
+        if (c=='}') {
+            return '{';
+        }
+
+        if (c==']') {
+            return '[';
+        }
+
         return '\0';
+        */
+        switch (c) {
+            case ')':
+                return '(';
+
+            case '}':
+                return '{';
+
+            case ']':
+                return '[';
+
+            default:
+                return '[';
+        }
     }
+
     public boolean isValid(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
@@ -33,6 +61,7 @@ public class Solution {
         int ls = s.length();
         int i=0;
         boolean valid = false;
+
         while (i<ls) {
             char c = s.charAt(i);
             if (isLeftpart(c)) {
@@ -49,7 +78,11 @@ public class Solution {
             }
             i ++;
         }
-        if (!buffer.isEmpty()) return false;
+
+        if (!buffer.isEmpty()) {
+            return false;
+        }
+        
         return true;
     }    
     

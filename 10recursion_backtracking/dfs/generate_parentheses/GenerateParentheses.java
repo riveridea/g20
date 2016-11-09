@@ -1,4 +1,6 @@
 /*
+22 Generate Parentheses
+https://leetcode.com/problems/generate-parentheses
 
 Given n pairs of parentheses, write a function to
 generate all combinations of well-formed parentheses.
@@ -7,9 +9,6 @@ For example, given n = 3, a solution set is:
 
 "((()))", "(()())", "(())()", "()(())", "()()()"
 */
-
-统一dfs算法
-# http://blog.csdn.net/u011095253/article/details/9158429
 
 public class Solution {
     public ArrayList<String> generateParenthesis(int n) {
@@ -41,15 +40,15 @@ public class Solution {
 }
 
 
------------------------------------------
-采用递归树的思想，当左括号数大于右括号数时可以加左或者右括号，否则只能加左括号，
-当左括号数达到n时，剩下全部加右括号。
-*/
+
+//采用递归树的思想，当左括号数大于右括号数时可以加左或者右括号，
+//否则只能加左括号，当左括号数达到n时，剩下全部加右括号。
+
 
 
 /*  Java */
 
-public class Solution {
+class Solution {
     public ArrayList<String> generateParenthesis(int n) {
          ArrayList<String> result = new ArrayList<String>();
          generate(result, "",0,0,n);

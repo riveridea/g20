@@ -1,20 +1,37 @@
 /*
-Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+31. Next Permutation
+https://leetcode.com/problems/next-permutation
 
-If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+Implement next permutation, which rearranges numbers into the 
+lexicographically next greater permutation of numbers.
+
+If such arrangement is not possible, it must rearrange it as 
+the lowest possible order (ie, sorted in ascending order).
 
 The replacement must be in-place, do not allocate extra memory.
 
-Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
+Here are some examples. Inputs are in the left-hand column and 
+its corresponding outputs are in the right-hand column.
+
 1,2,3 → 1,3,2
 3,2,1 → 1,2,3
 1,1,5 → 1,5,1
 */
 
 
+/*
 http://blog.csdn.net/tuantuanls/article/details/8717262
 
+http://fisherlei.blogspot.com/2012/12/leetcode-next-permutation.html
 
+http://blog.csdn.net/tuantuanls/article/details/8717262
+
+http://blog.csdn.net/xiaozhuaixifu/article/details/14122947
+
+http://gongxuns.blogspot.com/2012/12/leetcodenext-permutation.html
+
+http://discuss.leetcode.com/questions/211/next-permutation
+/*
 
 public class Solution {
     public void nextPermutation(int[] num) {
@@ -48,13 +65,3 @@ public class Solution {
         return ;         
     }
 }
-
-http://fisherlei.blogspot.com/2012/12/leetcode-next-permutation.html
-
-http://blog.csdn.net/tuantuanls/article/details/8717262
-
-http://blog.csdn.net/xiaozhuaixifu/article/details/14122947
-
-http://gongxuns.blogspot.com/2012/12/leetcodenext-permutation.html
-
-http://discuss.leetcode.com/questions/211/next-permutation
