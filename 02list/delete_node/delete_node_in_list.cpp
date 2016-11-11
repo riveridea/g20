@@ -1,5 +1,7 @@
 /*
+237. Delete Node in a Linked List
 2.3.txt
+https://leetcode.com/problems/delete-node-in-a-linked-list/
 
 Write a function to delete a node (except the tail) in the middle
  of a ingly linked list, given only access to that node.
