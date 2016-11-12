@@ -1,4 +1,7 @@
 /*
+128. Longest Consecutive Sequence
+https://leetcode.com/problems/longest-consecutive-sequence/
+
 Given an unsorted array of integers, find the length of 
 the longest consecutive elements sequence.
 
@@ -10,16 +13,14 @@ The longest consecutive elements sequence is
 Your algorithm should run in O(n) complexity.
 */
 
-
-###
-
+/*
 Think as cluster merge, a single number is a length=1 cluster.
 
 The key factors about a cluster is: lowest, highest, and length.
 Map lowest and highest to length. To merge two neighbor clusters, only need to update it's new lowest and highest, with new length.
 For every a[i], checking its neighbor a[i]-1 and a[i]+1 is enough.
 
-###
+*/
 
 
 /* Java */

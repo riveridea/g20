@@ -1,6 +1,9 @@
 /*
+59. Spiral Matrix II
+https://leetcode.com/problems/spiral-matrix-ii/
 
-Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+Given an integer n, generate a square matrix filled with
+elements from 1 to n2 in spiral order.
 
 For example,
 Given n = 3,
