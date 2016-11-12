@@ -1,3 +1,0 @@
-/*
-finding maximum element in binary search tree
-*/

@@ -1,3 +1,0 @@
-/*
-finding minimum element in binary search tree
-*/
