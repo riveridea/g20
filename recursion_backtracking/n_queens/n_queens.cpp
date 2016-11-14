@@ -1,5 +1,5 @@
 /*
-N-Queens:
+51. N-Queens:
 https://leetcode.com/problems/n-queens/
 
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard 
