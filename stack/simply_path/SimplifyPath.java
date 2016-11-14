@@ -1,3 +1,7 @@
+/*
+71. Simplify Path
+https://leetcode.com/problems/simplify-path/
+
 Given an absolute path for a file (Unix-style), simplify it.
 
 For example,
@@ -16,7 +20,7 @@ http://discuss.leetcode.com/questions/247/simplify-path
 
 try:
 http://blog.csdn.net/xudli/article/details/8633304
-
+*/
 
 
 public class Solution {
