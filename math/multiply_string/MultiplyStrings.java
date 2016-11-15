@@ -1,12 +1,16 @@
 /*
-Given two numbers represented as strings, return multiplication of the numbers as a string.
+43. Multiply Strings
+https://leetcode.com/problems/multiply-strings/
+
+Given two numbers represented as strings, return multiplication of 
+the numbers as a string.
 
 Note: The numbers can be arbitrarily large and are non-negative.
-*/
+
 
 
 http://leetcodenotes.wordpress.com/2013/10/20/leetcode-multiply-strings-%E5%A4%A7%E6%95%B4%E6%95%B0%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B9%98%E6%B3%95/comment-page-1/#comment-122  // 这个方法很难看懂~
-
+*/
 
 public class Solution {
     public String multiply(String num1, String num2) {

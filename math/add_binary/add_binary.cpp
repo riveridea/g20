@@ -1,8 +1,9 @@
 /*
-Add Binary:
+67. Add Binary
 https://leetcode.com/problems/add-binary/
 
-Given two binary strings, return their sum (also a binary string).
+Given two binary strings, return their sum 
+(also a binary string).
 
 For example,
 a = "11"

@@ -1,10 +1,16 @@
 /*
-Given a number represented as an array of digits, plus one to the
-number.
+66. Plus One:
+https://leetcode.com/problems/plus-one/
+
+Given a non-negative number represented as an array of 
+digits, plus one to the number. The digits are stored 
+such that the most significant digit is at the head of 
+the list.
+
+
+# 从数组尾部到头部处理，用一个overflow flag来判断是否溢出，
+如果溢出则需要新开一个array
 */
-
-# 从数组尾部到头部处理，用一个overflow flag来判断是否溢出，如果溢出则需要新开一个array
-
 /* Java */
 
 public class Solution {
