@@ -14,9 +14,33 @@ There is only one duplicate number in the array, but it could
 be repeated more than once.
 */
 
-class Solution {
+// see: https://boweihe.me/?p=1920
+
 public:
+    int countLtEq(const vector<int>& nums, int n){
+        int count = 0;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i] <= n)
+                count ++;
+        }
+        return count;
+    }
+    
     int findDuplicate(vector<int>& nums) {
-        
+        int n = nums.size() - 1;
+        int min = 1, max = n;
+        int mid;
+        int ltEqCnt;
+        while(min < max){
+            mid = (min + max)/2;
+            ltEqCnt = countLtEq(nums, mid);
+            if(ltEqCnt <= mid){
+                //[min, mid]是正常的，找另一边
+                min = mid+1;
+            } else {
+                max = mid;
+            }
+        }
+        return min; // min == max
     }
 };
