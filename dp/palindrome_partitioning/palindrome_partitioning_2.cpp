@@ -1,8 +1,9 @@
 /*
-Palindrome partitioning II:
+132. Palindrome Partitioning II
+https://leetcode.com/problems/palindrome-partitioning-ii/
 
-Given a string s, partition s such that every substring 
-of the partition is a palindrome.
+Given a string s, partition s such that every substring of the 
+partition is a palindrome.
 
 Return the minimum cuts needed for a palindrome partitioning of s.
 
@@ -51,3 +52,5 @@ public class Solution {
         return matrix;  
     }  
 }  
+
+http://blog.csdn.net/lbyxiafei/article/details/9349571
