@@ -72,3 +72,8 @@ public class Solution {
         return find;
     }
 }
+
+// good reference
+// http://bookshadow.com/weblog/2015/09/28/leetcode-find-duplicate-number
+// http://fisherlei.blogspot.com/2015/10/leetcode-find-duplicate-number-solution.html
+// https://www.hrwhisper.me/leetcode-find-the-duplicate-number
