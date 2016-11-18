@@ -15,8 +15,39 @@ There is only one duplicate number in the array, but it could
 be repeated more than once.
 */
 
+/*
+Ideas:
+1.  Hash,  time:O(n) space O(n). adding extra space
+2.  Brute force, time:(n^2) space O(1)
+3.  Sorting, time: O(nlongn) space O(1). will modify original space
+4.  divide-conquer: time: O(nlogn), space O(1) or Pigeonhole priciple
+*/
+
+
 public class Solution {
     public int findDuplicate(int[] nums) {
-        
+        int min = 0;
+        int max = nums.length - 1;
+
+        while (min <= max) {
+        	int mid = (max + min)/2;
+        	int count = 0;
+
+        	// get how many numbers in array smaller than
+        	// index mid
+        	for (int i = 0; i < nums.length; i++) {
+        		if (nums[i] <= mid) {
+        			count++;
+        		}
+        	}
+
+        	if (count > mid) {
+        		max = mid - 1; // duplicate occurs in first part of array
+        	} else {
+        		min = mid + 1; // in the second part of array
+        	}
+        }
+
+        return min;
     }
 }
