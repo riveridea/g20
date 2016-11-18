@@ -50,4 +50,25 @@ public class Solution {
 
         return min;
     }
+
+    // use fast, slow index
+    public int findDuplicate1(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+
+        // start from index 0
+        int find = 0;
+
+        while (find != slow) {
+            slow = nums[slow];
+            find = nums[find];
+        }
+
+        return find;
+    }
 }
