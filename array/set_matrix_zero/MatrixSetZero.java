@@ -20,19 +20,67 @@ Could you devise a constant space solution?
 所以要先过一遍，记住哪一行应该设为全0，那一列应该设为全0，然后第二次的时候再设0。
 */
 
-public class Solution {
-    public void setZeroes(int[][] matrix) {
-        // mark whether there is a ZERO at first row and first column
-        boolean rowZero = false;
-        boolean colZero = false;
+/*
+google 面试第五版 1.7.txt
+asked by Zinga:
+*/
 
-        for (int i = 0; i < matrix.length; i++) {
-        	if (matrix[i][0] == 0) {
-        		colZero = true;
-        		break;
+class Solution {
+
+	// O(m+n) space
+    public void setZeroes(int[][] matrix) {
+        //
+        int row = matrix.length;
+        int column = matrix[0].length;
+
+        int[] rowFlags = new int[row];
+        int[] columnFlags = new int[column];
+
+        for (int i = 0; i < row; i++) {
+        	for (int j = 0; j < column; j++) {
+        		if (matrix[i][j] == 0) {
+        			rowFlags[i] = 1;
+        			columnFlags[j] = 1;
+        		}
         	}
         }
 
-        
+        for (int i = 0; i < row; i++) {
+        	for (int j = 0; j < column; j++) {
+        		if (rowFlags[i] == 1 || columnFlags[j] == 1) {
+                    matrix[i][j] = 0;
+        		}
+        	}
+        }
+    }
+
+    public void printMatrix(int[][] matrix) {
+        int row = matrix.length;
+        int column = matrix[0].length;
+
+        system.out.print("{");
+    	for (int i = 0; i < row; i++) {
+
+    		system.out.print("{");
+
+    		for (int j = 0; j < column; j++) {
+    			system.out.print(matrix[i][j]);
+    		}
+
+    		system.out.print("{");
+    		system.out.println();
+    	}
+    }
+}
+
+public class MatrixSetZero {
+
+
+	public static void main(String[] args) {
+    	int[][] matrix = {{0,0,0,5},
+                          {4,3,1,4},
+                          {0,1,1,4},
+                          {1,2,1,3},
+                          {0,0,1,1}};
     }
 }
