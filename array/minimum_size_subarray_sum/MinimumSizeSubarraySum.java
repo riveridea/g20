@@ -17,7 +17,10 @@ solution of which the time complexity is O(n log n).
 */
 
 public class Solution {
+	// O(n) solution
     public int minSubArrayLen(int s, int[] nums) {
         
     }
+
+    // time complexity O(nlogn)
 }
