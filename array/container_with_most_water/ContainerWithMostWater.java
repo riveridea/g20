@@ -19,7 +19,7 @@ Note: You may not slant the container.
 *
 * Every operation can ensure the maximum area it can get from the current
 * position is recorded. like the Mathmatical Induction, the inital maximum
-* area is recorded, too. So tha, this algorithm is correct.
+* area is recorded, too. So that, this algorithm is correct.
 *
 * Running Time is O(n)
 */
@@ -27,31 +27,47 @@ Note: You may not slant the container.
 
 /* Java */
 
-public class Solution {
-    public int maxArea(int[] height) {
+public class ContainerWithMostWater {
+    public int maxArea(int height[]) {
         
-       int maxArea = 0;
-       int i = 0;
-       int j = height.length - 1;
-    
-       if(j <=0)
-         return 0;
-       
-       while(i < j) {
-          int area = 0;
-          if(height[i] < height[j]){
-              area = height[i]*(j-i);
-              i++;
-             
-          }else {
-             area = height[j]*(j-i);
-             j--;
-          }
-
-          if(area > maxArea) 
-          	 maxArea = area;
+        int maxArea = 0;
+        int right = 0;
+        int left = height.length - 1;
+        
+        if (left <= 0) {
+            return 0;
         }
         
-        return maxArea;        
+        while (right < left) {
+            int tempArea = 0;
+            
+            if (height[right] < height[left]) {
+                tempArea = height[right] * (left - right);
+                // move right to left, to see whether we can
+                // find a higher bar
+                right++;
+            } else {
+                tempArea = height[left] * (left - right);
+                left--;
+            }
+            
+            if (tempArea > maxArea) {
+                maxArea = tempArea;
+            }
+        }
+        
+        return maxArea;
+    }
+
+    public static void main(String args[]) {
+        int height[] = new int[4];
+        height[0] = 1;
+        height[1] = 3;
+        height[2] = 2;
+        height[3] = 4;
+
+        ContainerWithMostWater solution = new ContainerWithMostWater();
+
+        System.out.println("The most water is: " + solution.maxArea(height));
     }
 }
