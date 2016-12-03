@@ -46,42 +46,41 @@ class Solution {
 
         // root will be the last elem in the tree postorder sorting
         TreeNode root = new TreeNode(postorder[end2]);
-    }
-}
+        int rootAtInorder = -1;
 
+        // search root node in the inorder array,
+        // then divide it into two parts, left subtree
+        // and right subtree.
 
-
-    
-    TreeNode* buildBT(vector<int>& inorder, int start1, int end1,
-                      vector<int>& postorder, int start2, int end2) {
-        if (start1 > end1 || start2 > end2) {
-            return NULL;
-        }
-        
-        TreeNode* root = new TreeNode(postorder[end2]);
-        int rootIndex = -1;
-        // search root node in inorder vector
-        for (int i=start1; i<=end1; i++) {
-            if (inorder[i] == root->val) {
-                rootIndex = i;
+        for (int i = start1; i <= end1; i++) {
+            if (inorder[i] == root.val) {
+                rootAtInorder = i;
                 break;
             }
         }
-        
-        // if these two vectors are not mactched in fact
-        if (rootIndex == -1) {
+
+        if (rootAtInorder == -1) {
             return NULL;
         }
-        
-        int leftTreeSize = rootIndex - start1;
-        
-        root->left = buildBT(inorder, start1, rootIndex-1, 
-                            postorder, start2, start2 + leftTreeSize - 1);
-                            
-        int rightTreeSize = end1 - rootIndex;                    
-        root->right = buildBT(inorder, rootIndex+1, end1,
-                            postorder, end2 - rightTreeSize, end2-1);
-        
+
+        int leftTreeSize = rootAtInorder - start1;
+        int rightTreeSize = end1 = rootAtInorder;
+
+        root.left = buildBT(inorder, start1, rootAtInorder-1,
+                postorder, start2, start2 + leftTreeSize -1);
+        root.right = buildBT(inorder, rootAtInorder+1, end1,
+                postorder, end2-rightTreesize, end2 -1);
+
         return root;
     }
-};
+}
+
+public class ConstructBinaryTreeInorderPostorder {
+
+    Solution sol = new Solution();
+
+    public static void main(String args[]) {
+
+    }
+}
+
