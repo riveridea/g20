@@ -1,6 +1,13 @@
 /*
+234. Palindrome Linked List
+https://leetcode.com/problems/palindrome-linked-list/
 
-CC150 2.7.txt
+Given a singly linked list, determine if it is a palindrome.
+
+Follow up:
+Could you do it in O(n) time and O(1) space?
+
+Or CC150 2.7.txt
 
 # Implement a function to check if a linked list is a palindrome.
 
@@ -8,13 +15,7 @@ CC150 2.7.txt
 2. push the first half in the stack then compare,
 3. recursive approach.
 
-
 e.g. 0->1->2->1->0
-
-LeetCode:
-Given a singly linked list, determine if it is a palindrome. 
-Follow up: Could you do it in O(n) time and O(1) space?
-
 */
 
 /* CPP */
