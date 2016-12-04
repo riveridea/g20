@@ -1,4 +1,7 @@
 /*
+61. Rotate List
+https://leetcode.com/problems/rotate-list/
+
 Given a list, rotate the list to the right by k places, where k is 
 non-negative.
 
@@ -29,10 +32,12 @@ class ListNode {
 
 class Solution {
     public ListNode rotateRight(ListNode head, int n) {
-       if(head==null) 
+       if (head == null) {
             return null;
+       }
             
-       ListNode n1 = head,n2=head;
+       ListNode n1 = head;
+       ListNode n2 = head;
        int length = 0;
        
        while (n1 != null) {
@@ -43,7 +48,7 @@ class Solution {
         n1 = head;
         n = n%length;
         
-        while(n>0){
+        while (n>0){
             n2=n2.next;
             n--;
         }
@@ -60,36 +65,7 @@ class Solution {
         ListNode temp = n1.next;
         n2.next=head;
         n1.next=null;
-        return temp;        
-    }
+        return temp;  
 
-    public ListNode rotateRight(ListNode head, int n) {
-
-        if(head==null) 
-            return null;
-
-        ListNode n1 = head,n2=head;
-
-        while(n>0){
-            n2=n2.next;
-            n--;
-            
-            if(n2==null){
-                n2=head;
-            }
-        }
-        
-        if(n1==n2) 
-            return n1;
-        
-        while(n2.next!=null){
-            n1=n1.next;
-            n2=n2.next;
-        }
-        
-        ListNode temp = n1.next;
-        n2.next=head;
-        n1.next=null;
-        return temp;
     }
 }
