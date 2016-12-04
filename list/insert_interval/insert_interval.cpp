@@ -19,13 +19,14 @@ This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 
 /**
  * Definition for an interval.
- * struct Interval {
- *     int start;
- *     int end;
- *     Interval() : start(0), end(0) {}
- *     Interval(int s, int e) : start(s), end(e) {}
- * };
  */
+struct Interval {
+    int start;
+    int end;
+    Interval() : start(0), end(0) {}
+    Interval(int s, int e) : start(s), end(e) {}
+};
+
 class Solution {
 public:
     vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {

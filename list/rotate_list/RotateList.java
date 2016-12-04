@@ -1,32 +1,33 @@
 /*
-Given a list, rotate the list to the right by k places, where k is non-negative.
+Given a list, rotate the list to the right by k places, where k is 
+non-negative.
 
 For example:
 Given 1->2->3->4->5->NULL and k = 2,
 return 4->5->1->2->3->NULL.
 */
 
+//It's somehow like finding the Nth to last Node. Once you find it, 
+//change some pointers and Bim Bam Boom: list ends up rotated. I'd 
+//say it's a linear time solution.
 
-//It's somehow like finding the Nth to last Node. Once you find it, change some pointers and Bim Bam Boom: list ends up rotated. I'd say it's a linear time solution.
-
-
-###
-may be it is good to calculate the length of the list first.
-
+//may be it is good to calculate the length of the list first.
 
 /* Java */
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
  */
-public class Solution {
+ 
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+class Solution {
     public ListNode rotateRight(ListNode head, int n) {
        if(head==null) 
             return null;
@@ -61,12 +62,8 @@ public class Solution {
         n1.next=null;
         return temp;        
     }
-}
 
-
-####
-
-public ListNode rotateRight(ListNode head, int n) {
+    public ListNode rotateRight(ListNode head, int n) {
 
         if(head==null) 
             return null;
@@ -95,3 +92,4 @@ public ListNode rotateRight(ListNode head, int n) {
         n1.next=null;
         return temp;
     }
+}

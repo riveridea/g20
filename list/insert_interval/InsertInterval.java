@@ -20,34 +20,43 @@ This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 
 /**
  * Definition for an interval.
- * public class Interval {
- *     int start;
- *     int end;
- *     Interval() { start = 0; end = 0; }
- *     Interval(int s, int e) { start = s; end = e; }
- * }
  */
-public class Solution {
+ public class Interval {
+     int start;
+     int end;
+     Interval() { start = 0; end = 0; }
+     Interval(int s, int e) { start = s; end = e; }
+ }
+
+/*
+ * Solution 
+ */
+class Solution {
     public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {
  
-         Interval temp = newInterval;
-        ArrayList<Interval> lst = new ArrayList<Interval>();
+        Interval temp = newInterval;
+        ArrayList<Interval> list = new ArrayList<Interval>();
         
         for(Interval i : intervals){
             if(i.end < temp.start){
-                lst.add(i);
-            }
-            else if(i.start > temp.end){
-                lst.add(temp);
+                list.add(i);
+            } else if(i.start > temp.end){
+                list.add(temp);
                 temp = i;
-            }
-            else{
+            } else{
                 temp = new Interval(Math.min(temp.start, i.start), Math.max(temp.end, i.end));
             }
         }
         
-        lst.add(temp);
+        list.add(temp);
         
-        return lst;
+        return list;
+    }
+}
+
+public class InsertInterval {
+
+    public static void main(String args[]) {
+
     }
 }

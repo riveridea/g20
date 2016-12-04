@@ -1,7 +1,9 @@
 /* 
 Check whether the given Linked List length is even or odd?
 
-Use a 2x pointer. Take a pointer which moves at 2x [2 nodes at a time]. At the end, if the length is even then pointer will be NULL otherwise it will point to last node.
+Use a 2x pointer. Take a pointer which moves at 2x [2 nodes 
+at a time]. At the end, if the length is even then pointer 
+will be NULL otherwise it will point to last node.
 */
 
 /* CPP */
