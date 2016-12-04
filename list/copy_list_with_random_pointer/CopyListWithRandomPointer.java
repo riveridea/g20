@@ -9,12 +9,13 @@ Return a deep copy of the list.
 
 /**
  * Definition for singly-linked list with a random pointer.
- * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
- * };
  */
+class RandomListNode {
+    int label;
+    RandomListNode next, random;
+    RandomListNode(int x) { this.label = x; }
+};
+
 class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
         if (head == null) {
@@ -64,4 +65,12 @@ class Solution {
 
         return newHead;
     }
+}
+
+public class CopyListWithRandomPointer {
+
+    public static void main(String args[]) {
+        
+    }
+
 }
