@@ -97,17 +97,19 @@ public class RemoveNthNodeFromEndofList {
         while (head.next != null) {
             System.out.print(head.val);
             System.out.print("->");
+            head = head.next;
         }
 
         System.out.print("null");
-
+        System.out.println();
     }
- 
-    Solution solution = new Solution();
-    ListNode head = null;
-    RemoveNthNodeFromEndofList test = new RemoveNthNodeFromEndofList();
+
  
     public static void main(String args[]) {
+
+        Solution solution = new Solution();
+        ListNode head = null;
+        RemoveNthNodeFromEndofList test = new RemoveNthNodeFromEndofList();
 
         head = test.buildList();
         test.printList(head);
