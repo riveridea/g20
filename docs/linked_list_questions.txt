@@ -1,0 +1,53 @@
+Linked List
+
+-- Operations on one list
+
+
+Insert: 
+insert a node at random position (head, middle, rear)
+insert a node into a circle 
+
+Delete: 
+ delete a node at random position 
+ delete a node by a specific value
+19. remove Nth node from end of list (Java, CPP, C)
+4,    remove nodes with duplicate value  and leave one copy 
+5.    remove nodes with duplicate value completely 
+
+
+Find: 
+1. find kth element
+2. find middle element
+
+
+Length: 
+1. calculate the length of linked list
+2. how many nodes, odd or even.
+
+Cycle:
+whether there is a cycle
+start of the cycle
+partition the cycle into two cycles
+
+Reorder:
+
+reverse  a whole list  1 2 3  =>  3 2 1
+reverse a section of list  1 2 3 4 5 => (1 4)  (3 2) 5
+switch nodes in pairs  12 34  => (2 1) (4 3)
+switch nodes by first and last in a pair 1 2 3 4 5 =>  (1 5) (2 4) 3
+rotate list by k node  1 2 3 4 5 => (4 5) (1 2) 3
+sort nodes by even values are first part and odd values are the second part
+ 1 2  3 4 5 => (2 4) (1 3) 5
+is palindrome  1 2 3 2 1
+8. sort an unordered list to sorted list
+9 . copy list with random pointer
+10. separate list by a value
+11. print list from behind
+
+
+
+-- Operations on two or k lists:
+added two numbers expressed in linkedlist
+160. get the intersection of two linked lists
+merge two linked lists
+merge k linked list
