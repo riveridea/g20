@@ -1,27 +1,7 @@
 /*
-Reverse a Singly Linked List
-输入一个链表的头结点，从尾到头输出每个结点的值
-*/
+92. Reverse Linked List II
+https://leetcode.com/problems/reverse-linked-list-ii/
 
-
-
-/* Java */
-
-public ListNode Reverse(ListNode head) {
-	if (head == null || head.next == null) {
-		return head;
-	}
-
-	ListNode secondElem = head.next;
-	head.next = null;
-	secondElem.next = head;
-
-	ListNode reverseRest = Reverse(secondElem);
-
-	return reverseRest;
-}
-
-/*
 Reverse a linked list from position m to n. Do it in-place and in one-pass.
 
 For example:
@@ -34,22 +14,25 @@ Given m, n satisfy the following condition:
 1 ≤ m ≤ n ≤ length of list.
 */
 
-
-
-
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
  */
 
- // passed version
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+}
+
+public class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        
+    }
+}
+
+
+
+
 public class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if( head==null | m==n) return head;
