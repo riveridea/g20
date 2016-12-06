@@ -23,7 +23,7 @@ class ListNode {
     ListNode(int x) { val = x; }
 }
 
-class Solution {
+public class Solution {
     public void deleteNode(ListNode node) {
         if (node == NULL || node.next == NULL) {
         	return;
@@ -35,11 +35,8 @@ class Solution {
 
         return;
     }
-}
 
-public class DeleteNodeinList {
+    public static void main(String args[]) {
 
-	public static void main(String args[]) {
-
-	}
+    }
 }
