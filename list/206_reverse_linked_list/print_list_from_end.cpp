@@ -33,6 +33,7 @@ public:
         stack<int> stack;
 
         ListNode* current = head;
+        
         while (current != NULL) {
             stack.push(current->val);
             current = current->next;

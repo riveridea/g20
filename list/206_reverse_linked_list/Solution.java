@@ -18,18 +18,42 @@ class ListNode {
 
 public class Solution {
     // recursively
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseListRec (ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
 
-        ListNode second = head.next;
+        ListNode subListHead = head.next;
         head.next = null;
-        ListNode sublistHead = reverseList(second);
-        sublistHead.next = head;
 
-        return sublistHead;
+        // smaller-size problem
+        ListNode reversedListHead = reverseListRec(subListHead);
+        subListHead.next = head;
+
+        return reversedListHead;
     }
+
+    // iteratively
+    public ListNode reverseListIte (ListNode head) {
+        // base case 1 & 2
+        if (null == head || null == head.next) {
+            return head;
+        }
+
+        ListNode reversedListHead = null;
+        ListNode nextNode = null;
+
+        while (head != null) {
+            nextNode = head.next;
+            head.next = reversedListHead;
+            reversedListHead = head;
+            head = nextNode;
+        }
+
+        return reversedListHead;
+    }
+
+
 
     public ListNode buildList() {
 
@@ -59,7 +83,17 @@ public class Solution {
 
     public static void main (String args[]) {
         Solution s = new Solution();
-        ListNode head = s.buildList();
-        s.printList(head);
+
+        System.out.println("Do it recursively:");
+        ListNode head1 = s.buildList();
+        s.printList(head1);
+        ListNode reversedListHead1 = s.reverseListRec(head1);
+        s.printList(reversedListHead1);
+
+        System.out.println("Do it iteratively:");
+        ListNode head2 = s.buildList();
+        s.printList(head2);
+        ListNode reverseListHead2 = s.reverseListIte(head2);
+        s.printList(reverseListHead2);
     }
 }
