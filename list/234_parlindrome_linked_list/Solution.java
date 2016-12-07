@@ -89,5 +89,47 @@ class Solution {
     // then reverse the second list and compare two sublists.
     // The time is O(n) and space is O(1)
 
+    public boolean isPalindrome3(ListNode head) {
+        if (head == null) {
+            return true;
+        }
+
+        ListNode middle = findMiddle(head);
+        middle.next = reverse(middle.next);
+
+        ListNode p1 = head;
+        ListNode p2 = middle.next;
+
+        while (p1 != null && p2 != null && p1.val == p2.val) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p2 == null;
+    }
+
+    private ListNode findMiddle (ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode slow = head;
+    }
+
+
+
+    // public methods
+    public ListNode createList() {
+
+    }
+
+    public void printList(ListNode head) {
+
+    }
+
+
+    public static void main(String args) {
+
+    }
     
 }
