@@ -16,11 +16,7 @@ Return
   ]
 */
 
-public class PalindromePartitioning {
-
-}
-
-class Solution {
+public class Solution {
     public ArrayList<ArrayList<String>> partition(String s) {  
         // Start typing your Java solution below  
         // DO NOT write main() function  
