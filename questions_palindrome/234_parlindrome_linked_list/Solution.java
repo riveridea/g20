@@ -89,6 +89,8 @@ class Solution {
     // then reverse the second list and compare two sublists.
     // The time is O(n) and space is O(1)
 
+    // most effecient way
+
     public boolean isPalindrome3(ListNode head) {
         if (head == null) {
             return true;
@@ -135,8 +137,7 @@ class Solution {
             runner = next;
         }
     }
-
-
+    // end of function isPalindrome3(ListNode head) 
 
     // public methods
     public ListNode createList() {
