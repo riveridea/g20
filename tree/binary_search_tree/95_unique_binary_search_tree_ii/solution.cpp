@@ -16,6 +16,15 @@ Given n = 3, your program should return all 5 unique BST's shown below.
 
 */
 
+/*
+Similar problem
+
+Problem-48:
+Give an algorithm for counting the number of BST's possible with n nodes.
+
+Refer to DP folder for solution.
+*/
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
