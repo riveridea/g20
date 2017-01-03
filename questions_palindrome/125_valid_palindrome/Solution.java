@@ -1,6 +1,8 @@
 /*
 125. Valid Palindrome
 
+https://leetcode.com/problems/valid-palindrome/
+
 Given a string, determine if it is a palindrome, considering only 
 alphanumeric characters and ignoring cases.
 
@@ -20,6 +22,9 @@ Palindrome Linked List
 */
 
 public class Solution {
+    /*
+    many corner cases are not considered
+    */
     public boolean isPalindrome(String s) {
         int i = 0;
         int j = s.length() - 1;
@@ -34,6 +39,12 @@ public class Solution {
     }
 
     public static void main(String args[]) {
-    	
+    	Solution s = new Solution();
+
+        boolean flag = s.isPalindrome("amananama");
+
+        if (flag) {
+            System.out.println("example is a valid palindrome");
+        }
     }
 }
