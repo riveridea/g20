@@ -35,4 +35,8 @@ echo -e "\n------- Files found are:--------------\n"
 # count the number of documents
 file_count=0
 
+# check all the directories iteratively, the deepest depth without showing the empty line
+file_list=`ls -R $dir 2> /dev/null | grep -v '^$'`
 
+# use file cmd to check whether file is ASCII text type
+file_type='file $cur_dir/$file_name | grep "text"'
