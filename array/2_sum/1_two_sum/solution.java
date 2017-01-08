@@ -1,4 +1,6 @@
 /*
+1. Two Sum
+
 https://leetcode.com/problems/two-sum/
 
 Q: Given an array of integers, find two numbers such 
@@ -26,7 +28,7 @@ Q: Given an array of integers, find two numbers such
 */
 
 public class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSum1(int[] numbers, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         
         int[] indexes = new int[2];
@@ -44,7 +46,6 @@ public class Solution {
         return indexes;
         
     }
-}
 
 // if the return format have beed changed to zero-based
 // indices.
@@ -52,9 +53,7 @@ public class Solution {
 //Because nums[0] + nums[1] = 2 + 7 = 9,
 //return [0, 1].
 
-
-public class Solution {
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSum2(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         
         int[] indexes = new int[2];
@@ -70,7 +69,6 @@ public class Solution {
         
         return indexes;
     }
-}
 
 
 /*
@@ -79,12 +77,12 @@ public class Solution {
 * Important: if the order in the original array cannot
 * be changed, the Hashtabel is the best solution.
 */
-
-public class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSum3(int[] numbers, int target) {
 
     	// change the order! so the output indexes are
     	// not accurate, cannot pass OJ.
+        // if only need to find out the two numbers
+        // That is a way to go.
         Arrays.sort(numbers);
         
         int[] indexes = new int[2];

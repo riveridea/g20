@@ -14,22 +14,13 @@ Given n = 3, there are a total of 5 unique BST's.
     /     /       \                 \
    2     1         2                 3
 
-/*
-Similar problem
-
-Problem-48:
+Same Problem: Problem-48:
 Give an algorithm for counting the number of BST's possible with n nodes.
 
-Refer to DP folder for solution.
+Also, refer to DP folder for solution.
 */
 
-#include <iostream>
-
-using namespace std;
-
-
-class Solution {
-public:
+public class Solution {
     /*
     Basic Idea:
     tree rooted as node i, its left subtree consists of [0, i-1]
@@ -45,31 +36,30 @@ public:
           2     1
  
     Therefore, dp[2] = dp[0]*dp[1] + dp[1]*dp[0]
-
-
-
     */
-    int numTrees(int n) {
+
+    pulic int numTrees(int n) {
         int i = 0;
         int j = 0;
-        int dp[n]; 
+        int[] dp;
 
         dp[0] = 1;
         dp[1] = 1;
 
-        for (i = 2; i <=n; i++) {
+        for (i = 2; i <= n; i++) {
             dp[i] = 0;
 
-            for (j =0; j < i; j++) {
-                dp[i] = dp[i] + dp[j] * dp[i- j- 1];
+            for (j = 0; j < i; i++) {
+            	dp[i] = dp[i] + dp[j] * dp[i-j-1];
             }
         }
 
         return dp[n];
+
     }
-};
 
-int main() {
 
-    return 0;
+	public static void main(String[] args) {
+
+	}
 }
