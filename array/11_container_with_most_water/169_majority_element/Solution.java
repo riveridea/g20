@@ -9,6 +9,8 @@ You may assume that the array is non-empty and the majority element always
 exist in the array.
 */
 
+// 每次 丢去两个不一样的？到最后就是 需要找的那个
+
 public class Solution {
 	/*
     delete two numbers each time, the last one must be 
