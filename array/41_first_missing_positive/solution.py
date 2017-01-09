@@ -1,16 +1,15 @@
-/*
- First Missing Positive:
-
+"""
+ 41. First Missing Positive:
  https://leetcode.com/problems/first-missing-positive/
- * 
- * Given an unsorted integer array, to find the first 
- * missing positive integer.
- * For exmaple, 
- *   Given [1, 2, 0], return 3;
- *   and [3, 4, -1, 1], return 2. // program outputs 1 ??          
- *
- * Your algorithm should run in O(n) time and use constant space.
- */
+  
+ Given an unsorted integer array, to find the first 
+ missing positive integer.
+ For exmaple, 
+    Given [1, 2, 0], return 3;
+    and [3, 4, -1, 1], return 2. // program outputs 1 ??          
+
+ Your algorithm should run in O(n) time and use constant space.
+"""
 
 class Solution {
 public:
